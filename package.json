@@ -1,0 +1,15 @@
+{
+  "name": "net_req_spam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "send": "node send.js",
+    "recv": "node recv.js"
+  },
+  "author": "dvtate",
+  "license": "MIT",
+  "description": "sends/recevie a lot of spam requests",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
