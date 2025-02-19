@@ -1,7 +1,7 @@
 const fsp = require('node:fs/promises');
 const { Buffer } = require('node:buffer');
 
-let randomDataStore = Buffer.alloc(500000);
+let randomDataStore = Buffer.alloc(50_000_000);
 
 async function init() {
     // Generate a bunch of random data by
@@ -18,7 +18,7 @@ async function init() {
 }
 init();
 
-function randData(len) {
+function randData(len = randomDataStore.length) {
     const randIndex = Math.floor(Math.random() * randomDataStore.length - len - 1);
     const sb = randomDataStore.subarray(randIndex, randIndex + len);
     return sb.toString('base64');

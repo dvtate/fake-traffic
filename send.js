@@ -11,7 +11,7 @@ async function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function makeRequests() {
+async function makeRequests(dest) {
     for (;;) {
         // Intentionally not using Promise.all
         for (let i = 0; i < 20000; i++) {
