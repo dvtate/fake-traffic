@@ -2,10 +2,11 @@ const fsp = require('node:fs/promises');
 const { Buffer } = require('node:buffer');
 
 let randomDataStore = Buffer.alloc(50_000_000);
+let zipBombBuffer;
 
 async function init() {
     // Generate a bunch of random data by
-    console.log('generating random data...');
+    console.log('Generating random data...');
     const fd = await fsp.open('/dev/random');
     await fd.read({
         buffer: randomDataStore,
@@ -14,7 +15,13 @@ async function init() {
         // position: 0,
     });
     await fd.close();
-    console.log('finished generating random data...');
+    console.log('Finished generating random data.');
+
+    // Read zip bomb buffer
+    if (process.env.BOMB) {
+        module.exports.zipBombBuffer = await fsp.readFile('10GB.gz');
+        console.log('Loaded Zip Bomb Buffer.');
+    }
 }
 init();
 
@@ -26,4 +33,5 @@ function randData(len = randomDataStore.length) {
 
 module.exports = {
     randData,
+    zipBombBuffer,
 };

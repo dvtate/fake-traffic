@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "send": "node send.js",
-    "recv": "node recv.js"
+    "recv": "node recv.js",
+    "bomb": "BOMB=1 node recv.js"
   },
   "author": "dvtate",
   "license": "MIT",
