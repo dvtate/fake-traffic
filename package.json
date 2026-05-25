@@ -11,6 +11,6 @@
   "license": "MIT",
   "description": "sends/recevie a lot of spam requests",
   "dependencies": {
-    "express": "^4.22.1"
+    "express": "^4.22.2"
   }
 }
